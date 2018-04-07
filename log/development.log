@@ -1,0 +1,6 @@
+Data source:
+Since live score data is not given in any NBA related api I found, plan to write a scraper. And for other data, just use api.
+
+Apr, 7
+Plan to get data from nba.net, while the site is heavily using js. Try to use tools phantomjs combined with cheeriojs.
+(async awiat)===> ES6
