@@ -1,7 +1,7 @@
 let phantom = require('phantom');
 let cheerio = require('cheerio');
 let app = require('../app');
-
+let instance;
 
 const url = 'http://www.nba.com/scores#/';
 
@@ -11,7 +11,9 @@ exports.updateScore = async function () {
 };
 
 async function loadPage(url) {
-    const instance = await phantom.create();
+    if(!instance){
+        instance = await phantom.create();
+    }
     const page = await instance.createPage();
     console.log(1);
     const status = await page.open(url);
