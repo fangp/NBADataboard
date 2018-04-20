@@ -4,14 +4,15 @@
  * Module dependencies.
  */
 
-let app = require('../app');
+let app_module = require('../app');
 let debug = require('debug')('nbastats:server');
 let http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
-
+let app = app_module.app;
+let io = app_module.io;
 let port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
@@ -29,6 +30,7 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+io.listen(server);
 /**
  * Normalize a port into a number, string, or false.
  */
